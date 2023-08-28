@@ -1,0 +1,132 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: 20px;
+  border: solid rgb(179, 179, 179) 1px; 
+  justify-content: space-between;
+}
+
+.div-container2 {
+  display: flex;
+  border: solid yellow 1px;
+  
+}
+
+.container-annonces {
+  margin-top: 20px;
+  display: flex;
+  border: solid red 1px;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+
+.div-filtre {
+  margin-top: 10px;
+  box-shadow: 11px 12px 11px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  margin-left: 10px;
+  border: solid rgb(241, 241, 241) 1px;
+  border: solid black 1px;
+  width: 80%;
+}
+
+.div-filtre input {
+  margin-left: 5px;
+}
+
+.my-2 {
+  display: flex;
+  flex-direction: row;
+}
+
+.photo-annonce {
+  height: 200px;
+  width: 200px;
+  border-radius: 20px;
+  margin: 2px;
+}
+
+.container {
+  box-shadow: 11px 12px 11px 0px rgba(0, 0, 0, 0.1);
+  border: solid black 1px;
+}
+
+
+.div-filtre>div {
+  margin-bottom: 10px;
+}
+
+.div-filtre input[type="radio"] {
+  margin-right: 5px;
+}
+
+.div-annonces {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  border: solid rgb(0, 255, 136) 2px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+}
+
+.card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.card-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  flex-grow: 1;
+  margin-bottom: 10px;
+}
+
+.card-text small {
+  color: gray;
+}
+
+.button-inside-annonce button {
+ 
+  border: solid blue 1px;
+
+position: relative;
+  float: right;
+  
+  
+}
+
+.container-inside{
+  border: solid blue 1px;
+  width: 80%;
+  
+  
+}
+
+.options {
+  border: solid green 2px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 80px;
+}
+
+.create-annonce {
+  border: solid blue 1px;
+  margin-top: 20px;
+}
+
+.divMap{  border: solid black 1px;}
