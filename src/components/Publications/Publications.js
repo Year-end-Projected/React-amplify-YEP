@@ -16,7 +16,7 @@ function Publi({ direction, ...args }) {
     const handleDropdownItemClick = item => {
         setSelectedItem(item);
       };
-      
+    
 
     return (
         <>
@@ -119,15 +119,15 @@ useEffect(() => {
   /////////////////////////////////////////////////////////////
 
   const publicationsMap = [
-    { id: 1, titre: "Item 1", description:"grgegeg", ville:"Paris", type:"Long métrage", remunere:"Oui"},
-    { id: 2, titre: "Item 2", description:"grgegeg", ville:"Lyon", type:"Défilé", remunere:"Oui"},
-    { id: 3, titre: "Item 3", description:"grgegeg", ville:"Lyon", type:"Court métrage", remunere:"Non"},
-    { id: 4, titre: "Item 4", description:"grgegeg", ville:"Lyon", type:"Court métrage", remunere:"Non"},
-    { id: 5, titre: "Item 5", description:"grgegeg", ville:"Lyon", type:"Long métrage", remunere:"Oui"},
-    { id: 6, titre: "Item 6", description:"grgegeg", ville:"Lyon", type:"Court métrage", remunere:"Oui"},
-    { id: 7, titre: "Item 7", description:"grgegeg", ville:"Lyon", type:"Court métrage", remunere:"Oui"},
-    { id: 8, titre: "Item 8", description:"grgegeg", ville:"Lyon", type:"Shooting", remunere:"Oui"},
-    { id: 9, titre: "Item 9", description:"grgegeg", ville:"Lyon", type:"Court métrage", remunere:"Oui"},
+    { id: 1, titre: "Item 1", description:"grgegeg", ville:"Paris", type:"Long métrage", remunere:"Oui", image: "https://images.pexels.com/photos/4629627/pexels-photo-4629627.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"},
+    { id: 2, titre: "Item 2", description:"grgegeg", ville:"Lyon", type:"Défilé", remunere:"Oui",image: "https://images.pexels.com/photos/3206167/pexels-photo-3206167.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"},
+    { id: 3, titre: "Item 3", description:"grgegeg", ville:"Lyon", type:"Court métrage", remunere:"Non",},
+    { id: 4, titre: "Item 4", description:"grgegeg", ville:"Lyon", type:"Court métrage", remunere:"Non",},
+    { id: 5, titre: "Item 5", description:"grgegeg", ville:"Lyon", type:"Long métrage", remunere:"Oui",},
+    { id: 6, titre: "Item 6", description:"grgegeg", ville:"Lyon", type:"Court métrage", remunere:"Oui",},
+    { id: 7, titre: "Item 7", description:"grgegeg", ville:"Lyon", type:"Court métrage", remunere:"Oui",},
+    { id: 8, titre: "Item 8", description:"grgegeg", ville:"Lyon", type:"Shooting", remunere:"Oui",},
+    { id: 9, titre: "Item 9", description:"grgegeg", ville:"Lyon", type:"Court métrage", remunere:"Oui",},
     { id: 10, titre: "Item 10", description:"grgegeg", ville:"Lyon", type:"Court métrage", remunere:"Oui"},
     { id: 11, titre: "Item 11", description:"grgegeg", ville:"Lyon", type:"Shooting", remunere:"Oui"},
     { id: 12, titre: "Item 12", description:"grgegeg", ville:"Nantes", type:"Shooting", remunere:"Non"},,
@@ -353,37 +353,38 @@ const handleDropdownItemClick = item => {
 
 
             <div className="container-annonces container-2">
-
-            
             <div className="divMap1">
-    {selectedItemType === null && selectedCommune === ''
+  {selectedItemType === null && selectedCommune === ''
     ? publicationsMap.map(publication => (
-        <div className="divMap" key={publication.id}>
+        <div className="container-publication" key={publication.id}>
+          <h2>{publication.titre}</h2>
+          <p>{publication.description}</p>
+          <p>{publication.ville}</p>
+          <p>{publication.type}</p>
+          <p>rémunéré : {publication.remunere}</p>
+          {/* Ajoutez l'image en utilisant le lien que vous avez fourni */}
+          <img src={publication.image} alt="Description de l'image" width="200px" />
+        </div>
+      ))
+    : publicationsMap
+        .filter(publication => {
+          const typeCondition = selectedItemType === null || publication.type === selectedItemType;
+          const communeCondition = selectedCommune === '' || publication.ville.toLowerCase() === selectedCommune.toLowerCase();
+          return typeCondition && communeCondition;
+        })
+        .map(publication => (
+          <div className="container-publication" key={publication.id}>
             <h2>{publication.titre}</h2>
             <p>{publication.description}</p>
             <p>{publication.ville}</p>
             <p>{publication.type}</p>
             <p>rémunéré : {publication.remunere}</p>
+            {/* Ajoutez l'image en utilisant le lien que vous avez fourni */}
+            <img src={publication.image} alt="Description de l'image" width="200px" />
         </div>
-    ))
-    : publicationsMap
-        .filter(publication => {
-            const typeCondition = selectedItemType === null || publication.type === selectedItemType;
-            const communeCondition = selectedCommune === '' || publication.ville.toLowerCase() === selectedCommune.toLowerCase();
-            return typeCondition && communeCondition;
-        })
-        .map(publication => (
-            <div className="divMap" key={publication.id}>
-                <h2>{publication.titre}</h2>
-                <p>{publication.description}</p>
-                <p>{publication.ville}</p>
-                <p>{publication.type}</p>
-                <p>rémunéré : {publication.remunere}</p>
-               
-                
-            </div>
         ))}
 </div>
+
 
             <div className="container">
 
@@ -472,6 +473,9 @@ const handleDropdownItemClick = item => {
                 </div>
             </div>
             </div>
+            
+            
+
         </>)
 
 }
