@@ -16,7 +16,9 @@
   
 } */
 
-
+.page-annonce{
+  padding: 20px;
+}
 
 
 
@@ -25,7 +27,7 @@
 .container-annonces {
   margin-top: 20px;
   display: flex;
-  border: solid red 1px;
+  /* border: solid red 1px; */
   flex-direction: column;
   margin-left: 20px;
 }
@@ -59,7 +61,9 @@
 
 .container {
   box-shadow: 11px 12px 11px 0px rgba(0, 0, 0, 0.1);
-  border: solid rgb(197, 24, 24) 1px;
+  margin-top: 50px;
+
+  /* border: solid rgb(197, 24, 24) 1px; */
 }
 
 
@@ -75,7 +79,13 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
-  border: solid rgb(0, 255, 136) 2px;
+  border: solid rgb(162, 162, 162) 2px;  
+   border-radius: 20px;
+   margin-bottom: 10px;
+   padding: 50px;
+   max-height: 600px;
+   width: 100%;
+
 }
 
 .card {
@@ -110,7 +120,7 @@
 
 .button-inside-annonce button {
  
-  border: solid blue 1px;
+  /* border: solid blue 1px; */
 
 position: relative;
   float: right;
@@ -119,22 +129,48 @@ position: relative;
 }
 
 .container-inside{
-  border: solid blue 1px;
+  /* border: solid blue 1px; */
   width: 80%;
   
   
 }
 
 .options {
-  border: solid green 2px;
+  /* border: solid green 2px; */
   display: flex;
   justify-content: space-between;
   margin-top: 80px;
 }
 
 .create-annonce {
-  border: solid blue 1px;
+  /* border: solid blue 1px; */
   margin-top: 20px;
 }
 
-.container-publication{  border: solid rgb(91, 210, 35) 1px;}
+.container-publication{  
+/* border: solid rgb(91, 210, 35) 1px; */
+justify-content: space-between;
+padding: 10px;
+margin-top: 50px;
+border-radius: 20px;
+
+
+}
+
+
+
+.image-publication {
+  height: 400px;
+  width: 400px;
+  border-radius: 20px;
+  margin: 2px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  /* border: solid rgb(0, 255, 136) 2px; */
+  margin-bottom: 150px;
+}
+
+.info-annonce {
+  margin-top: 20px;
+}

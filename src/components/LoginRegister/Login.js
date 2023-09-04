@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import "./Login.css";
 //import { set } from "mongoose";
 import ApiLogin from "../../services/ApiLogin";
+import { set } from "mongoose";
 
 function Login({ isAuth, setIsAuth }) {
     const navigate = useNavigate();
@@ -11,15 +12,49 @@ function Login({ isAuth, setIsAuth }) {
     const [password, setPassword] = useState("");
     const [token, setToken] = useState([]);
 
+    // function handleLoginButton(email, password) {
+    //     console.log("handleLoginButton");
+    //     const apiLogin = new ApiLogin(email, password);
+    //     apiLogin.getToken().then(async token => {
+    //         setToken(token);
+    //         console.log(token);
+    //     });
+    //     console.log(isAuth);
+    //     setIsAuth(true);
+    //     navigate("/profile/my");
+    // }
+
+    // function handleLoginButton(email, password) {
+    //     const apiLogin = new ApiLogin(email, password);
+    //     apiLogin.getToken().then(async token => {
+    //         setToken(token);
+    //         console.log(token);
+    //     });
+    //     console.log("connecté");
+    //     console.log("connexion refusée");
+    // }
+
     function handleLoginButton(email, password) {
-        console.log("handleLoginButton");
-        setIsAuth(true);
         const apiLogin = new ApiLogin(email, password);
-        apiLogin.getToken().then(async token => {
-            setToken(token);
-            console.log(token);
-        });
+
+        apiLogin.getToken()
+            .then(async token => {
+                if (token) {
+                    setToken(token);
+                    console.log("Connecté");
+                    setIsAuth(true);
+                } else {
+                    console.log("Connexion refusée");
+                }
+            })
+            .catch(error => {
+                console.error("Erreur lors de la connexion :", error);
+                console.log("Connexion refusée");
+            });
+        navigate("/profile/my");
     }
+
+
 
     const handleRegisterButton = () => {
         navigate("/register");

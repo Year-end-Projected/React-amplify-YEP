@@ -42,10 +42,11 @@ function Home({ isAuth }) {
             <h1>
                 <i className="fas fa-home"></i>Home
             </h1>
-            <Publications />
+            {/* <Publications /> */}
         </div>
     ) : (
         <div className="not-authenticated">
+            <div class="css-3d-text">ARTILINK</div>
             <p>You are not logged in. Please </p>
             <Link to="/login">log in</Link>
         </div>

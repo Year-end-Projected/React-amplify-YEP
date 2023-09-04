@@ -20,7 +20,7 @@
 }
 
 .bio-projet{
- border: solid red 1px;
+ /* border: solid red 1px; */
  border-radius: 10px;
  padding: 10px;
  margin : 2px;
@@ -35,13 +35,13 @@ align-items: center;
 }
 
 .editer-profile {
-  border: solid brown 1px;
+  /* border: solid brown 1px; */
   
 
 }
 
 .button-edit {
-  border: solid pink 1px;
+  /* border: solid pink 1px; */
   margin-top: 20px;
   padding: 10px;
   margin : 2px;

@@ -24,7 +24,7 @@ function Router({ isAuth, setIsAuth }) {
 					<Route path="profile" element={<Error />} />
 					<Route exact path="profile/my" element={<MyProfile isAuth={isAuth}/>} />
 					<Route exact path="profile/my/edit" element={<ProfileEdit />} />
-					<Route path="publications" element={<Publications/>} />
+					<Route path="publications" element={<Publications isAuth={isAuth}/>} />
 					<Route path="publications/create" element={<CreatePublication />} />
 					<Route path="publications/my" element={<MyPublications />} />
 					{/* <Route exact path="publications/my" element={<MyPublications />} /> */}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Register.css";
+import ApiRegister from "../../services/ApiRegister";
 
 
 function Register() {
@@ -16,16 +17,28 @@ function Register() {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Perform registration logic here
+    function handleRegisterButton() {
+        const apiRegister = new ApiRegister(formData.name, formData.email, formData.password, formData.dateOfBirth);
+
+        apiRegister.registerUser()
+            .then(async response => {
+                if (response) {
+                    console.log("Inscrit");
+                } else {
+                    console.log("Inscription refusée");
+                }
+            })
+            .catch(error => {
+                console.error("Erreur lors de l'inscription :", error);
+                console.log("Inscription refusée");
+            });
         navigate("/login");
-    };
+    }
 
     return (
         <div className="register-container">
             <h1>Register</h1>
-            <form onSubmit={handleSubmit}>
+            <form>
                 <div className="form-group">
                     <label htmlFor="name">Name</label>
                     <input
@@ -70,7 +83,7 @@ function Register() {
                         required
                     />
                 </div>
-                <button className="btn btn-primary" type="submit">
+                <button className="btn btn-primary" type="submit" onClick={handleRegisterButton}>
                     Register
                 </button>
             </form>

@@ -8,7 +8,7 @@ import './MyProfile.css';
 import { Button } from 'reactstrap';
 import PropTypes from "prop-types";
 
-function My() {
+function My({ isAuth }) {
     const navigate = useNavigate();
     const handleMesProjetsButton = () => {
         navigate("/publications/my");
@@ -102,9 +102,9 @@ function My() {
 };
 
 function MyProfile({ isAuth }) {
-    console.log(isAuth);
+    // console.log(isAuth);
     return isAuth ? (
-        <My />
+        <My isAuth={isAuth} />
     ) : (
         <div className="not-authenticated">
             <p>You are not logged in. Please </p>
